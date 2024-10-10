@@ -10,6 +10,8 @@ class RocketLauncher {
       // eslint-disable-next-line no-param-reassign
       r.engineStatus = 'active';
     });
+
+    this.rockets = [];
   }
 
   launchByQueue() {
