@@ -5,14 +5,14 @@ class RocketLauncher {
     this.rockets = rockets;
   }
 
-  launchAllRockets() {
+  launchAll() {
     this.rockets.forEach((r) => {
       // eslint-disable-next-line no-param-reassign
       r.engineStatus = 'active';
     });
   }
 
-  launchRocketByQueue() {
+  launchByQueue() {
     const r = this.rockets.shift();
     r.engineStatus = 'active';
   }
