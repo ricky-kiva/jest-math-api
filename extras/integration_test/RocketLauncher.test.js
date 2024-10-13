@@ -8,7 +8,7 @@ describe('A RocketLauncher', () => {
     const nasaRocket = new Rocket('NASA');
     const spaceXRocket = new Rocket('SpaceX');
 
-    // 1. Test Double: Dummy (for RocketRepairKit)
+    // 1. Test Double: Dummy -> passing empty object to the class
     const rocketLauncher = new RocketLauncher({}, [nasaRocket, spaceXRocket]);
 
     rocketLauncher.launchAll();
@@ -22,7 +22,7 @@ describe('A RocketLauncher', () => {
     const nasaRocket = new Rocket('NASA');
     const spaceXRocket = new Rocket('SpaceX');
 
-    // 1. Test Double: Dummy (for RocketRepairKit)
+    // 1. Test Double: Dummy -> passing empty object to the class
     const rocketLauncher = new RocketLauncher({}, [nasaRocket, spaceXRocket]);
 
     rocketLauncher.launchByQueue();
