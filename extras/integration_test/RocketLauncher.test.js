@@ -8,7 +8,8 @@ describe('A RocketLauncher', () => {
     const nasaRocket = new Rocket('NASA');
     const spaceXRocket = new Rocket('SpaceX');
 
-    const rocketLauncher = new RocketLauncher([nasaRocket, spaceXRocket]);
+    // 1. Test Double: Dummy (for RocketRepairKit)
+    const rocketLauncher = new RocketLauncher({}, [nasaRocket, spaceXRocket]);
 
     rocketLauncher.launchAll();
 
@@ -21,7 +22,8 @@ describe('A RocketLauncher', () => {
     const nasaRocket = new Rocket('NASA');
     const spaceXRocket = new Rocket('SpaceX');
 
-    const rocketLauncher = new RocketLauncher([nasaRocket, spaceXRocket]);
+    // 1. Test Double: Dummy (for RocketRepairKit)
+    const rocketLauncher = new RocketLauncher({}, [nasaRocket, spaceXRocket]);
 
     rocketLauncher.launchByQueue();
 
