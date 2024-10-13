@@ -21,7 +21,7 @@ class RocketLauncher {
     r.engineStatus = 'active';
   }
 
-  async repairAllRockets() {
+  async repairAll() {
     let failedRepairCount = 0;
 
     const repairPromises = this.rockets.map(async (r) => {
