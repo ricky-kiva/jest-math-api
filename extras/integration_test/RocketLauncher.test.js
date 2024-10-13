@@ -31,4 +31,19 @@ describe('A RocketLauncher', () => {
     expect(spaceXRocket.engineStatus).toEqual('inactive');
     expect(rocketLauncher.rockets.length).toEqual(1);
   });
+
+  it('should return correct result when repair kit cannot repair the rocket', async () => {
+    // 2. Test Double: Stub
+    // -> Change object's behavior (fake or real) to have predictable result on testing
+    const fakeRocketRepairKit = {
+      // eslint-disable-next-line prefer-promise-reject-errors
+      repair: () => Promise.reject(('failed to repair the rocket'))
+    };
+
+    const rocketLauncher = new RocketLauncher(fakeRocketRepairKit, [{}]);
+
+    const result = await rocketLauncher.repairAll();
+
+    expect(result).toEqual('There was 1 of 1 rocket failed to repair!');
+  });
 });

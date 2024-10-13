@@ -38,7 +38,7 @@ class RocketLauncher {
       return 'All rocket repaired!';
     }
 
-    return `there was ${failedRepairCount} of ${this.rockets.length} rocket failed to repair!`;
+    return `There was ${failedRepairCount} of ${this.rockets.length} rocket failed to repair!`;
   }
 }
 
