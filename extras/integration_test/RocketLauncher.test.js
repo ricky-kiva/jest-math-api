@@ -46,4 +46,34 @@ describe('A RocketLauncher', () => {
 
     expect(result).toEqual('There was 1 of 1 rocket failed to repair!');
   });
+
+  it('should repair some repairable rockets when repair kit cannot repair some of the rockets', async () => {
+    const repairableRocket = new Rocket('repairableRocket');
+    const unrepairableRocket = new Rocket('unrepairableRocket');
+
+    // 3. Test Double: Mock
+    // -> Same as Stub, change object's behavior to be predictable,
+    // -- but also ensure that the method is being executed
+    const fakeRocketRepairKit = {
+      repair: jest.fn().mockImplementation((r) => {
+        if (r.name === 'repairableRocket') {
+          return Promise.resolve();
+        }
+
+        // eslint-disable-next-line prefer-promise-reject-errors
+        return Promise.reject('Failed to repair the rocket');
+      })
+    };
+
+    const rocketLauncher = new RocketLauncher(
+      fakeRocketRepairKit,
+      [repairableRocket, unrepairableRocket]
+    );
+
+    const result = await rocketLauncher.repairAll();
+
+    expect(result).toEqual('There was 1 of 2 rocket failed to repair!');
+    expect(fakeRocketRepairKit.repair).toBeCalled();
+    expect(fakeRocketRepairKit.repair).toBeCalledWith(repairableRocket);
+  });
 });
