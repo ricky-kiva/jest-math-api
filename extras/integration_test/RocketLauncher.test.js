@@ -2,6 +2,7 @@
 
 const Rocket = require('./Rocket');
 const RocketLauncher = require('./RocketLauncher');
+const RocketRepairKit = require('./RocketRepairKit');
 
 describe('A RocketLauncher', () => {
   it('can launch all rockets', () => {
@@ -75,5 +76,26 @@ describe('A RocketLauncher', () => {
     expect(result).toEqual('There was 1 of 2 rocket failed to repair!');
     expect(fakeRocketRepairKit.repair).toBeCalled();
     expect(fakeRocketRepairKit.repair).toBeCalledWith(repairableRocket);
+  });
+
+  it('should repair all the rockets with repair kit correctly', async () => {
+    const nasaRocket = new Rocket('NASA');
+    const spaceXRocket = new Rocket('SpaceX');
+
+    const rocketRepairKit = new RocketRepairKit({}, {}, {});
+
+    const spyRepair = jest.spyOn(rocketRepairKit, 'repair');
+
+    const rocketLauncher = new RocketLauncher(
+      rocketRepairKit,
+      [nasaRocket, spaceXRocket]
+    );
+
+    const result = await rocketLauncher.repairAll();
+
+    expect(spyRepair).toBeCalledTimes(2);
+    expect(spyRepair).toBeCalledWith(nasaRocket);
+    expect(spyRepair).toBeCalledWith(spaceXRocket);
+    expect(result).toEqual('All rocket repaired!');
   });
 });
