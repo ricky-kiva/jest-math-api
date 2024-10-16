@@ -1,27 +1,33 @@
 'use strict';
 
 const MathBasic = {
-  add: (...args) => {
+  _validateArgs(args) {
     if (args.length !== 2) {
-      throw new Error('Add function only take 2 arguments');
+      throw new Error('fungsi hanya menerima dua parameter');
     }
 
     const [a, b] = args;
 
     if (typeof a !== 'number' || typeof b !== 'number') {
-      throw new Error('Add function only take number paramters');
+      throw new Error('fungsi hanya menerima parameter number');
     }
-
+    return args;
+  },
+  add(...args) {
+    const [a, b] = this._validateArgs(args);
     return a + b;
   },
-  substract: () => {
-
+  subtract(...args) {
+    const [a, b] = this._validateArgs(args);
+    return a - b;
   },
-  multiply: () => {
-
+  multiply(...args) {
+    const [a, b] = this._validateArgs(args);
+    return a * b;
   },
-  divide: () => {
-
+  divide(...args) {
+    const [a, b] = this._validateArgs(args);
+    return a / b;
   }
 };
 
