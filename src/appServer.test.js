@@ -22,7 +22,7 @@ describe('An HTTP Server', () => {
 
       expect(res.statusCode).toEqual(200);
       expect(resJson.value).toEqual(30);
-      expect(spyAdd).toHaveBeenNthCalledWith(a, b);
+      expect(spyAdd).toHaveBeenCalledWith(a, b);
     });
   });
 
@@ -43,7 +43,7 @@ describe('An HTTP Server', () => {
 
       expect(res.statusCode).toEqual(200);
       expect(resJson.value).toEqual(4);
-      expect(spySubtract).toHaveBeenNthCalledWith(a, b);
+      expect(spySubtract).toHaveBeenCalledWith(a, b);
     });
   });
 });
