@@ -1,6 +1,6 @@
 'use strict';
 
-const mathServer = require('./mathServer');
+const appServer = require('./appServer');
 const MathBasic = require('./math/MathBasic');
 
 describe('An HTTP Server', () => {
@@ -11,7 +11,7 @@ describe('An HTTP Server', () => {
 
       const spyAdd = jest.spyOn(MathBasic, 'add');
 
-      const server = mathServer({ mathBasic: MathBasic });
+      const server = appServer({ mathBasic: MathBasic });
 
       const res = await server.inject({
         method: 'GET',
