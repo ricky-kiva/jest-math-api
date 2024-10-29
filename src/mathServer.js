@@ -2,7 +2,7 @@
 
 const Hapi = require('@hapi/hapi');
 
-const mathServer = ({ mathBasic }) => {
+const appServer = ({ mathBasic }) => {
   const server = Hapi.server({
     host: 'localhost',
     port: 5000
@@ -24,4 +24,4 @@ const mathServer = ({ mathBasic }) => {
   return server;
 };
 
-module.exports = mathServer;
+module.exports = appServer;

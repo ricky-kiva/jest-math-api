@@ -1,7 +1,7 @@
 'use strict';
 
 const mathServer = require('./mathServer');
-const MathBasic = require('./MathBasic');
+const MathBasic = require('./math/MathBasic');
 
 describe('An HTTP Server', () => {
   describe('when GET /add', () => {
