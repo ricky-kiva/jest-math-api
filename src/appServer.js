@@ -18,6 +18,15 @@ const appServer = ({ mathBasic }) => {
 
         return { value };
       }
+    }, {
+      method: 'GET',
+      path: '/subtract/{a}/{b}',
+      handler: (req) => {
+        const { a, b } = req.params;
+        const value = mathBasic.subtract(Number(a), Number(b));
+
+        return { value };
+      }
     }
   ]);
 
