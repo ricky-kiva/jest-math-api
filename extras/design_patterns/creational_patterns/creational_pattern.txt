@@ -1,0 +1,1 @@
+- For creating an instance without knowing its construction steps

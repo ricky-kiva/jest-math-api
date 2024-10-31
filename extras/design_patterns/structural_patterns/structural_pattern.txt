@@ -1,0 +1,1 @@
+- Focuses on how to structure a code
