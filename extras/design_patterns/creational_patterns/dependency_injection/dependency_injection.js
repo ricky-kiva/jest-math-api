@@ -1,3 +1,5 @@
+// A pattern that provides objects to a class, reducing tight coupling and enhancing flexibility
+
 'use strict';
 
 const Engine = require('./reqs/Engine');

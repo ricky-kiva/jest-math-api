@@ -1,3 +1,5 @@
+// A pattern for organizing classes, to reduce code repetition in similar objects
+
 'use strict';
 
 class Car {

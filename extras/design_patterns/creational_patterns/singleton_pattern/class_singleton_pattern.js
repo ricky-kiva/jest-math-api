@@ -1,3 +1,5 @@
+// A pattern ensuring a single instance within global access
+
 'use strict';
 
 class Logging {

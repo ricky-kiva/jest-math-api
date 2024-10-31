@@ -1,3 +1,5 @@
+// A pattern for step-by-step construction focused on the desired object
+
 'use strict';
 
 const Handphone = require('./reqs/Handphone');
