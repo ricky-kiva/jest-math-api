@@ -1,3 +1,5 @@
+// A pub/sub-like pattern where observers could subscribe to a subject & react to its changes
+
 'use strict';
 
 const FavoriteYouTubeChannel = require('./reqs/FavoriteYoutubeChannel');
